@@ -2,45 +2,50 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bali_ivory">
+    android:background="@color/bali_ivory"
+    tools:context=".MainActivity"
+    tools:ignore="MissingDefaultResource">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Katalog Gending Rare"
+        android:layout_margin="16dp"
+        android:text="@string/tv_title"
+        android:textColor="@color/bali_terracotta"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="@color/bali_terracotta"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Cari lagu..."
-        android:background="@android:color/white"
-        android:padding="10dp"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        android:background="@android:color/white"
+        android:hint="@string/search_hint"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <Button
         android:id="@+id/btnSort"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Urutkan A-Z"
-        android:backgroundTint="@color/bali_sage"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/etSearch"
+        android:backgroundTint="@color/bali_sage"
+        android:text="@string/sort_az"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vertical" />
+        app:layout_constraintTop_toBottomOf="@id/etSearch" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vertical"
@@ -52,11 +57,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGending"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_margin="8dp"
-        app:layout_constraintStart_toEndOf="@id/guideline_vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline_vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        tools:listitem="@layout/item_gending" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

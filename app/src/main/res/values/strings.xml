@@ -4,4 +4,6 @@
     <string name="img_description">Thumbnail Gending</string>
     <string name="dummy_nama_gending">Meye-Meye</string>
     <string name="dummy_deskripsi_singkat">Lagu pengiring permainan tradisional&#8230;</string>
+    <string name="search_hint">Cari lagu&#8230;</string>
+    <string name="sort_az">Urutkan A-Z</string>
 </resources>
