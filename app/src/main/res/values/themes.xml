@@ -1,16 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Theme.LaguBali" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">#2C3E50</item>
-        <item name="colorPrimaryVariant">#1A252F</item>
+        <item name="colorPrimary">@color/bali_sage</item>
+        <item name="colorPrimaryVariant">@color/bali_text</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">#E67E22</item>
-        <item name="colorSecondaryVariant">#D35400</item>
+        <item name="colorSecondary">@color/bali_terracotta</item>
+        <item name="colorSecondaryVariant">@color/bali_terracotta</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@color/bali_text</item>
     </style>
 </resources>

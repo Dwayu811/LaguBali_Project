@@ -6,4 +6,8 @@
     <string name="dummy_deskripsi_singkat">Lagu pengiring permainan tradisional&#8230;</string>
     <string name="search_hint">Cari lagu&#8230;</string>
     <string name="sort_az">Urutkan A-Z</string>
+    <string name="btn_play">▶ PLAY</string>
+    <string name="btn_pause">⏸ PAUSE</string>
+    <string name="btn_back">KEMBALI KE KATALOG</string>
+    <string name="cover_description">Cover Gending</string>
 </resources>

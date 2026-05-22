@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bali_sage">#8A9A5B</color> <!-- Hijau Sage -->
-    <color name="bali_ivory">#FFF8DC</color> <!-- Kuning Gading -->
-    <color name="bali_terracotta">#E2725B</color> <!-- Cokelat Bata -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="bali_sage">#8A9A5B</color>
+    <color name="bali_ivory">#FFF8DC</color>
+    <color name="bali_terracotta">#E2725B</color>
     <color name="bali_text">#2C3E50</color>
 </resources>

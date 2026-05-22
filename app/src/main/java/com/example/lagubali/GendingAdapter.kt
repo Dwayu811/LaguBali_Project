@@ -1,45 +1,54 @@
-package com.example.kataloggending
+package com.example.lagubali
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lagubali.R
 
 class GendingAdapter(
-    private val listGending: Array<Gending>,
-    private val onItemClick: (Gending) -> Unit
+    private var listGending: Array<Gending>,
+    var playingAudioId: Int = -1,
+    private val onToggleAudioClick: (Gending, Button) -> Unit
 ) : RecyclerView.Adapter<GendingAdapter.GendingViewHolder>() {
 
-    // 1. Menghubungkan file item_gending.xml ke RecyclerView
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(newList: Array<Gending>) {
+        this.listGending = newList
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GendingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_gending, parent, false)
         return GendingViewHolder(view)
     }
 
-    // 2. Memasukkan data dari Array lagu ke-X ke dalam komponen UI (Foto & Teks)
     override fun onBindViewHolder(holder: GendingViewHolder, position: Int) {
         val gending = listGending[position]
-
         holder.tvJudul.text = gending.judul
         holder.tvDeskripsi.text = gending.deskripsi
-        holder.imgLagu.setImageResource(gending.gambarResId) // Mengatur foto otomatis
+        holder.imgLagu.setImageResource(gending.gambarResId)
 
-        // Ketika baris lagu diklik, picu fungsi click (Persiapan Intent Minggu 2)
-        holder.itemView.setOnClickListener {
-            onItemClick(gending)
+        if (gending.audioResId == playingAudioId) {
+            holder.btnTogglePlay.text = "⏸"
+        } else {
+            holder.btnTogglePlay.text = "▶"
+        }
+
+        holder.btnTogglePlay.setOnClickListener {
+            onToggleAudioClick(gending, holder.btnTogglePlay)
         }
     }
 
-    // 3. Memberitahu RecyclerView bahwa total data ada 25 lagu
     override fun getItemCount(): Int = listGending.size
 
-    // Kelas internal untuk mengenali ID yang ada di item_gending.xml
     class GendingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgLagu: ImageView = itemView.findViewById(R.id.imgItemLagu)
         val tvJudul: TextView = itemView.findViewById(R.id.tvItemJudul)
         val tvDeskripsi: TextView = itemView.findViewById(R.id.tvItemDeskripsi)
+        val btnTogglePlay: Button = itemView.findViewById(R.id.btnTogglePlay)
     }
 }
