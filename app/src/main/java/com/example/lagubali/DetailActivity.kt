@@ -31,8 +31,6 @@ class DetailActivity : AppCompatActivity() {
         tvDetailJudul.text = judul
         tvDetailDeskripsi.text = deskripsi
         imgDetailLagu.setImageResource(gambar)
-
-        // Mempersiapkan file audio tanpa langsung memutarnya
         inisialisasiAudio(audioResId)
 
         btnPlay.setOnClickListener {
@@ -58,8 +56,6 @@ class DetailActivity : AppCompatActivity() {
         try {
             mediaPlayer?.stop()
             mediaPlayer?.release()
-
-            // Hanya menyiapkan data audio ke memori
             mediaPlayer = MediaPlayer.create(this, audioId)
         } catch (e: Exception) {
             e.printStackTrace()
